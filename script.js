@@ -131,6 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to print customer details
     function printCustomerDetails(customer) {
+        // Remove any existing print containers first
+        const existingContainers = document.querySelectorAll('.print-container');
+        existingContainers.forEach(container => {
+            document.body.removeChild(container);
+        });
+        
         // Create print container
         const printContainer = document.createElement('div');
         printContainer.className = 'print-container';
