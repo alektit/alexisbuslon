@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Customer and Warranty Records</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <style>
+        .admin-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .code-generator {
+            margin-top: 25px;
+        }
+        
+        #generateCode {
+            background-color: #2196F3;
+            padding: 12px 24px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        #activationCodesTable {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        
+        #activationCodesTable th {
+            background-color: #e3f2fd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        #activationCodesTable td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .welcome-message {
+            color: #1565C0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-row">
+            <h1>
+                <img src="ab.PNG" alt="AB Logo">
+                Admin Panel
+            </h1>
+            <button id="maximizeBtn" class="maximize-btn">□</button>
+        </div>
+        <div class="admin-section">
+            <p class="welcome-message">Welcome, Administrator!</p>
+            <h2>Activation Code Management</h2>
+            <div class="code-generator">
+                <button id="generateCode">Generate New Activation Code</button>
+                <div class="code-list">
+                    <h3>Active Codes</h3>
+                    <table id="activationCodesTable">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Status</th>
+                                <th>Generated Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+    <script src="admin.js"></script>
+</body>
+</html>

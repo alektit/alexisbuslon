@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer and Warranty Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-row">
+            <h1>
+                <img src="ab.PNG" alt="AB Logo">
+                Customer and Warranty Records
+                <span id="trialCountdown" class="trial-countdown"></span>
+            </h1>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+
+        <div id="customer-form">
+            <h2>Add New Customer</h2>
+            <form id="new-customer-form" class="compact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Customer Name:</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="tel" id="phoneNumber">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Technicianl">Technician:</label>
+                        <input type="technician" id="technician">
+                    </div>
+                    <div class="form-group">
+                        <label for="deviceType">Device Type:</label>
+                        <select id="deviceType">
+                            <option value="computer">Computer</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="phone">Phone</option>
+                            <option value="printer">Printer</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Model">Model:</label>
+                        <input type="text" id="Model">
+                    </div>
+                    <div class="form-group">
+                        <label for="purchaseDate">Starting:</label>
+                        <input type="date" id="purchaseDate">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="warrantyExpiration">Warranty Expiration:</label>
+                        <input type="date" id="warrantyExpiration">
+                    </div>
+                    <div class="form-group">
+                        <label for="issue">Issue:</label>
+                        <input type="text" id="issue">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="partsCost">Parts Cost:</label>
+                        <input type="number" id="partsCost" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceFee">Service Fee:</label>
+                        <input type="number" id="serviceFee" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentStatus">Payment Status:</label>
+                        <select id="paymentStatus">
+                            <option value="paid">Paid</option>
+                            <option value="unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Add Customer</button>
+            </form>
+        </div>
+
+        <div id="customer-list">
+            <h2>Customer List</h2>
+            <input type="text" id="searchInput" placeholder="Search customers...">
+            <table id="customer-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Device Type</th>
+                        <th>Serial Number</th>
+                        <th>Starting</th>
+                        <th>Repair Month</th>
+                        <th>Warranty Expiration</th>
+                        <th>Issue</th>
+                        <th>Parts Cost</th>
+                        <th>Service Fee</th>
+                        <th>Payment Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <div id="income-summary">
+                <h3>Income Summary</h3>
+                <p><strong>Total Parts Cost:</strong> ₱<span id="totalPartsCost">0.00</span></p>
+                <p><strong>Total Service Fee:</strong> ₱<span id="totalServiceFee">0.00</span></p>
+                <p><strong>Total Earnings:</strong> ₱<span id="totalEarnings">0.00</span></p>
+                <p id="next-refresh-note" class="refresh-note">Data will automatically refresh at the start of next month.</p>
+            </div>
+
+            <div id="historical-data">
+                <div class="history-header">
+                    <h3>Previous Month's Income History</h3>
+                    <button id="toggleHistoryBtn" class="toggle-btn">
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                </div>
+                <div id="monthly-history-container">
+                    <!-- Historical data will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+    <script src="script.js"></script>
+</body>
+</html>

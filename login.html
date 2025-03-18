@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Customer and Warranty Records</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box-wrapper">
+            <div class="branding">
+                <img src="ab.PNG" alt="AB Logo" style="height: 60px; margin-bottom: 10px;">
+            </div>
+            
+            <div class="auth-box">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="auth-links">
+                    <a href="register.html" class="create-account-btn">Create New Account</a>
+                    <button id="trialBtn" class="trial-btn">Try 5-Minute Demo</button>
+                </div>
+                <div id="loginMessage" class="auth-message"></div>
+            </div>
+            
+            <div class="admin-box">
+                <button id="showAdminBtn" class="show-admin-btn">
+                    <span>Admin Panel</span>
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="admin-content">
+                    <form id="adminLoginForm">
+                        <div class="form-group">
+                            <input type="text" id="adminUsername" placeholder="Admin Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                        </div>
+                        <button type="submit">Admin Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+    <script src="auth.js"></script>
+</body>
+</html>
