@@ -176,6 +176,8 @@ button:active {
     overflow-x: auto;
     display: block;
     max-width: 100%;
+    max-height: 650px;
+    overflow-y: auto;
 }
 
 #customer-table th, 
@@ -188,6 +190,12 @@ button:active {
     min-width: 100px;
 }
 
+#customer-table th:first-child, 
+#customer-table td:first-child {
+    min-width: 40px;
+    width: 40px;
+}
+
 #customer-table th {
     background-color: #e3f2fd;
     font-weight: 500;
@@ -198,6 +206,14 @@ button:active {
 
 #customer-table tbody tr:nth-child(even) {
     background-color: #f8faff;
+}
+
+.last-visible-row {
+    border-bottom: 2px dashed #1e88e5;
+}
+
+body.dark-mode .last-visible-row {
+    border-bottom: 2px dashed #64b5f6;
 }
 
 .delete-button {
@@ -233,7 +249,7 @@ button:active {
     background-repeat: no-repeat;
     background-size: 16px;
     margin-bottom: 12px !important;
-    width: 100%;
+    width: 30%;
     height: 32px;
     padding: 10px 12px 10px 35px;
     border: 1px solid #bbdefb;
@@ -284,8 +300,8 @@ button:active {
     border: 1px solid #bbdefb;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
     font-size: 0.85rem;
+    transition: background-color 0.2s ease;
 }
 
 .toggle-btn:hover {
@@ -459,6 +475,96 @@ body.dark-mode .trial-countdown {
     transform: translateY(-1px);
 }
 
+.save-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.save-button:hover {
+    background-color: #388e3c;
+    transform: translateY(-1px);
+}
+
+body.dark-mode .save-button {
+    background-color: #388e3c;
+}
+
+body.dark-mode .save-button:hover {
+    background-color: #2e7d32;
+}
+
+.print-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.print-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1e88e5;
+    padding-bottom: 10px;
+}
+
+.print-info {
+    margin-bottom: 30px;
+}
+
+.print-info p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.signature-box {
+    width: 45%;
+    text-align: center;
+}
+
+.signature-line {
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+    height: 40px;
+}
+
+.signature-box p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.signature-box p:first-of-type {
+    font-weight: bold;
+}
+
+.print-action-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.print-action-buttons button {
+    margin: 0 10px;
+    padding: 8px 15px;
+}
+
 @media print {
     body * {
         visibility: hidden;
@@ -472,14 +578,10 @@ body.dark-mode .trial-countdown {
         top: 0;
         width: 100%;
         padding: 20px;
-        background: white;
-    }
-    .print-header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .print-info {
-        margin-bottom: 10px;
+        height: auto;
+        overflow: visible;
+        page-break-after: avoid;
+        page-break-inside: avoid;
     }
     .print-action-buttons {
         display: none;
@@ -519,7 +621,7 @@ body.dark-mode .auth-box,
 body.dark-mode .admin-box {
     background: #2d2d2d;
     border-color: #404040;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 body.dark-mode input[type="text"],
@@ -646,4 +748,94 @@ body.dark-mode td select option {
 body.dark-mode .dark-mode-toggle {
     background-color: #ffd700;
     color: #1a1a1a;
+}
+
+/* Edit modal styles */
+.edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+body.dark-mode .edit-modal-content {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+body.dark-mode .close-modal {
+    color: #ccc;
+}
+
+body.dark-mode .close-modal:hover {
+    color: #fff;
+}
+
+.edit-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.edit-button:hover {
+    background-color: #3d8b40;
+    transform: translateY(-1px);
+}
+
+.payment-status-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.downpayment-amount {
+    width: 80px !important;
+    padding: 2px 5px;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    border: 1px solid #bbdefb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body.dark-mode .downpayment-amount {
+    background-color: #3d3d3d;
+    border-color: #404040;
+    color: #ffffff;
 }

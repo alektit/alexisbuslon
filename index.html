@@ -85,8 +85,13 @@
                         <label for="paymentStatus">Payment Status:</label>
                         <select id="paymentStatus">
                             <option value="paid">Paid</option>
+                            <option value="downpayment">Downpayment</option>
                             <option value="unpaid">Unpaid</option>
                         </select>
+                    </div>
+                    <div class="form-group" id="downpayment-container" style="display:none;">
+                        <label for="downpaymentAmount">Downpayment Amount:</label>
+                        <input type="number" id="downpaymentAmount" step="0.01" value="0" style="width: 80px;">
                     </div>
                 </div>
 
@@ -96,15 +101,19 @@
 
         <div id="customer-list">
             <h2>Customer List</h2>
-            <input type="text" id="searchInput" placeholder="Search customers...">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <input type="text" id="searchInput" placeholder="Search customers...">
+                <button id="saveButton" class="save-button">Save Customer List</button>
+            </div>
             <table id="customer-table">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Email</th>
+                        <th>Technician</th>
                         <th>Device Type</th>
-                        <th>Serial Number</th>
+                        <th>Model</th>
                         <th>Starting</th>
                         <th>Repair Month</th>
                         <th>Warranty Expiration</th>
@@ -141,5 +150,7 @@
     </div>
     <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
     <script src="script.js"></script>
+    <script src="utils.js"></script>
+    <script src="customer-form.js"></script>
 </body>
 </html>
